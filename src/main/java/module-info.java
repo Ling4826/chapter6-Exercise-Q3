@@ -2,7 +2,8 @@
 module se233.inverted.chapter3 {
     requires javafx.controls;
     requires javafx.fxml;
-    requires org.apache.pdfbox; // require แค่นี้พอครับ ไม่ต้องมี .io
+    requires org.apache.pdfbox;
+    requires org.apache.logging.log4j; // require แค่นี้พอครับ ไม่ต้องมี .io
 
     // แก้ไขทุกบรรทัดให้มี .inverted
     opens se233.inverted.chapter3 to javafx.fxml;

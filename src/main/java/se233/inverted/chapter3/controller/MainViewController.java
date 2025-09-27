@@ -28,9 +28,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MainViewController {
+    private static final Logger logger = LogManager.getLogger(MainViewController.class);
     LinkedHashMap<String, List<FileFreq>> uniqueSets;
     @FXML
     private ListView<String> inputListView;
@@ -87,6 +89,7 @@ public class MainViewController {
                     final ExecutorCompletionService<Map<String, FileFreq>> completionService = new ExecutorCompletionService<>(executor);
 
                     List<String> inputListViewItems = filePathList;
+                    logger.info("Indexing started for files: {}", inputListViewItems);
                     int total_files = inputListViewItems.size();
                     Map<String, FileFreq>[] wordMap = new Map[total_files];
 
